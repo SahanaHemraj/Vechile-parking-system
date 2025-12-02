@@ -12,7 +12,6 @@ Features:
 - Leave slot (free a slot)
 - Show status (table of slots and parked vehicles)
 - Find by plate
-- Save/Load state to JSON file
 
 This project is implemented in **Python** and organized as a small package.
 
@@ -22,8 +21,6 @@ parking_lot/
 │ ├─ parking_lot_core.py
 │ ├─ slot.py
 │ └─ vehicle.py
-├─ tests/
-│ └─ test_parking_core.py
 ├─ parking_lot.py
 └─ README.md
 
@@ -33,7 +30,8 @@ parking_lot/
 1. Ensure Python 3.8+ is installed.
 2. From project root:
 ```bash
-python3 parking_lot.py
+cd parking_lot
+cd python3 parking_lot.py
 
 3. When prompted, enter total number of parking slots (positive integer).
 
