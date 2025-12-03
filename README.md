@@ -25,6 +25,29 @@ parking_lot/
 └─ README.md
 
 
+## Quick diagram
+
+[ User (CLI) ]
+       |
+       v
+[ parking_lot.py ]  <-- CLI layer (parses commands)
+       |
+       v
+[ ParkingLot Core (parking_lot_core.py) ]
+  - create slots (40/40/remaining)
+  - park_vehicle(), leave_slot(), status()
+       |
+       v
+[ Models ]
+  - Slot(id,size,vehicle?)
+  - Vehicle(plate,size)
+       |
+       v
+[ Tests / README ]
+  - unit tests (pytest)
+  - README with run/test instructions
+
+
 
 ## How to run
 1. Ensure Python 3.8+ is installed.
