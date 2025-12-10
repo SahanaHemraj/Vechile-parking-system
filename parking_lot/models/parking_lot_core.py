@@ -47,10 +47,6 @@ class ParkingLot:
 
         allowed = self._allowed_slot_sizes(vehicle_size)
 
-<<<<<<< HEAD
-        #first-fit allocation
-=======
->>>>>>> d822ebb (initial commit)
         for slot in self.slots:
             if slot.is_free() and slot.size in allowed:
                 slot.vehicle = Vehicle(plate, vehicle_size.upper())
@@ -62,15 +58,9 @@ class ParkingLot:
         for slot in self.slots:
             if slot.id == slot_id:
                 if slot.is_free():
-<<<<<<< HEAD
-                    return False #slot is already empty 
-                slot.vehicle = None
-                return True # was occupied and now freed
-=======
                     return False
                 slot.vehicle = None
                 return True
->>>>>>> d822ebb (initial commit)
         return False
 
     def status(self):
@@ -83,11 +73,7 @@ class ParkingLot:
             lines.append(f"{s.id:<3}| {s.size:<8}| {occ:<9}| {plate}")
         return "\n".join(lines)
 
-<<<<<<< HEAD
-    def summary_counts(self): # Counts how many slots of each type exist
-=======
     def summary_counts(self):
->>>>>>> d822ebb (initial commit)
         small = sum(1 for s in self.slots if s.size == "SMALL")
         large = sum(1 for s in self.slots if s.size == "LARGE")
         oversize = sum(1 for s in self.slots if s.size == "OVERSIZE")

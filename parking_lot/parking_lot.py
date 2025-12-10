@@ -1,9 +1,5 @@
 # parking_lot.py
-<<<<<<< HEAD
-from parking_lot.models.parking_lot_core import ParkingLot
-=======
 from models.parking_lot_core import ParkingLot
->>>>>>> d822ebb (initial commit)
 
 def read_positive_int(prompt):
     while True:
@@ -15,11 +11,7 @@ def read_positive_int(prompt):
         except ValueError:
             print("Invalid number. Try again.")
 
-<<<<<<< HEAD
-def print_help(): 
-=======
 def print_help():
->>>>>>> d822ebb (initial commit)
     print("""
 Commands:
   park <plate> <size>   - Park a vehicle (size: small|large|oversize)
@@ -42,24 +34,14 @@ def main():
     print_help()
 
     while True:
-<<<<<<< HEAD
-        cmd = input("> ").strip().split() # main loop
-=======
         cmd = input("> ").strip().split()
->>>>>>> d822ebb (initial commit)
 
         if not cmd:
             continue
 
-<<<<<<< HEAD
-        action = cmd[0].lower() 
-
-        if action == "park": #Validation steps
-=======
         action = cmd[0].lower()
 
         if action == "park":
->>>>>>> d822ebb (initial commit)
             if len(cmd) < 3:
                 print("Usage: park <plate> <size>")
                 continue
@@ -71,15 +53,9 @@ def main():
                 print("Size must be: small | large | oversize")
                 continue
 
-<<<<<<< HEAD
-            result = lot.park_vehicle(plate, size) # call parking logic
-
-            if result == -2: 
-=======
             result = lot.park_vehicle(plate, size)
 
             if result == -2:
->>>>>>> d822ebb (initial commit)
                 print("Vehicle already parked.")
             elif result == -1:
                 print("No suitable slot available.")
@@ -97,20 +73,12 @@ def main():
                 print("Slot ID must be a number.")
                 continue
 
-<<<<<<< HEAD
-            if lot.leave_slot(sid): 
-=======
             if lot.leave_slot(sid):
->>>>>>> d822ebb (initial commit)
                 print(f"Slot {sid} is now free.")
             else:
                 print("Invalid slot or already free.")
 
-<<<<<<< HEAD
-        elif action == "status": # table
-=======
         elif action == "status":
->>>>>>> d822ebb (initial commit)
             print(lot.status())
 
         elif action == "help":
