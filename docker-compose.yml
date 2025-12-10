@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: parking
+      MYSQL_USER: parkinguser
+      MYSQL_PASSWORD: parkingpass
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-uroot", "-prootpass"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    image: sahanahemraj/parking-lot-app:latest
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8081:8000"   # host:container (expose host 8080 -> app 8000)
+    environment:
+      - DB_HOST=db
+      - DB_USER=parkinguser
+      - DB_PASS=parkingpass
+      - DB_NAME=parking
+      - PORT=8000
+    restart: unless-stopped
+
+volumes:
+  db_data:
