@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vehicle-parking-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vehicle-parking
+  template:
+    metadata:
+      labels:
+        app: vehicle-parking
+    spec:
+      containers:
+        - name: vehicle-parking-container
+          image: vehicle-parking-system:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000

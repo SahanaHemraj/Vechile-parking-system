@@ -33,3 +33,7 @@ def status():
 def summary():
     small, large, oversize = lot.summary_counts()
     return {"small": small, "large": large, "oversize": oversize}
+
+@app.get("/")
+def root():
+    return {"message": "Vehicle Parking System is running"}

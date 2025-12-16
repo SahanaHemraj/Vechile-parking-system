@@ -1,8 +1,6 @@
-# Python cache files
-__pycache__/
-
-# Compiled Python files (optional, but good for cleanliness)
-*.pyc
-
-# Virtual Environment directory
 venv/
+__pycache__/
+.pytest_cache/
+.env
+*.log
+.DS_Store
