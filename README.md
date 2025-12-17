@@ -75,20 +75,26 @@ VEHICLE_PARKING_SYSTEM/
 
 
 
+# Vehicle Parking System
+
+A FastAPI-based parking management system containerized with Docker and orchestrated via Kubernetes.
+
+---
+
 ## Run with Docker (Local)
 
 ### Prerequisites
 - Docker Desktop installed and running
 
-### Build Docker Image
+1. Build Docker Image
 ```bash
 docker build -t vehicle-parking-system:1.0 .
 
-###Run Container
+2. Run Container
 docker run -p 8000:8000 vehicle-parking-system:1.0
 
-#### Application will be available at:
-http://localhost:8000
+3. Access Application
+API Root: http://localhost:8000
 Swagger UI: http://localhost:8000/docs
 
 
@@ -99,18 +105,24 @@ Swagger UI: http://localhost:8000/docs
   kubectl installed
   Docker Desktop running
 
-### Start Minikube
+1. Start Minikube
 minikube start
 
 ### Point Docker to Minikube
 eval $(minikube docker-env)
 
-### Build Docker Image inside Minikube
+2. Build Docker Image inside Minikube
 docker build -t vehicle-parking-system:1.0 .
 
-### Deploy Kubernetes Resources
-kubectl apply -f k8s/
+3. Deploy Kubernetes Resources
+# Apply deployment and service manifests to the namespace
+kubectl apply -f deployment.yaml -n vechile-parking-system
+kubectl apply -f service.yaml -n vechile-parking-system
 
-### Verify Deployment
-kubectl get pods
-kubectl get svc
+4. Verify Deployment
+kubectl get pods -n vechile-parking-system
+kubectl get service -n vechile-parking-system
+
+5. Access via Port-Forwarding
+# Run this to bridge the K8s pod to your local machine
+kubectl -n vechile-parking-system port-forward deployment/vehicle-parking-deployment 8000:8000
