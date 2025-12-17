@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "parking-lot-api-unique-id",
+		"name": "Vehicle Parking System",
+		"description": "API collection for testing the FastAPI Parking Lot application on Minikube.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Root Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": ["{{base_url}}"],
+					"path": [""]
+				}
+			}
+		},
+		{
+			"name": "Park Vehicle",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"plate\": \"ABC-1234\",\n    \"size\": \"small\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/park",
+					"host": ["{{base_url}}"],
+					"path": ["park"]
+				}
+			}
+		},
+		{
+			"name": "Leave Slot",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/leave/1",
+					"host": ["{{base_url}}"],
+					"path": ["leave", "1"]
+				}
+			}
+		},
+		{
+			"name": "Get Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/status",
+					"host": ["{{base_url}}"],
+					"path": ["status"]
+				}
+			}
+		},
+		{
+			"name": "Get Summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/summary",
+					"host": ["{{base_url}}"],
+					"path": ["summary"]
+				}
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
