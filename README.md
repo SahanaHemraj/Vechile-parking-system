@@ -69,6 +69,7 @@ VEHICLE_PARKING_SYSTEM/
 ├── Dockerfile
 ├── docker-compose.yml
 ├── requirements.txt
+├── postman-collection.json
 ├── README.md
 └── .gitignore
 
